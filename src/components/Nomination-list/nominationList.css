@@ -15,6 +15,7 @@
     position: fixed;
     top: 0;
     background-color: #171824;
+    color: #ffffff;
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -23,7 +24,7 @@
     left: auto;
     right: 0;
     float: right;
-    max-width: 60vw;
+    max-width: 35vw;
     width: 100%;
     z-index: 1500;
 }
@@ -46,23 +47,33 @@
     padding: 1rem 1rem;
     grid-row-gap: 20px;
 }
+.none{
+    color: #ffffff;
+    text-align: center;
+}
 .card-list{
-    background-color: white;
-    border-radius: 5px;
+    border-radius: 2px;
     width: 100%;
+    border-bottom: 1px solid #fff;
 }
 .details{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-direction: row;
+    flex-direction:  row;
+    padding: 1rem;
+}
+.remove{
+    position: absolute;
+    top: 13%;
+    right: 75%;
 }
 .nominate-image{
-    width: 10%;
-    height: 18vh;
+    width: 20%;
+    height: 10vh;
 }
 @media screen and (max-width: 600px){
 .right-wrapper{
-    width: 100vw;
+    max-width: 100vw;
 }
 }

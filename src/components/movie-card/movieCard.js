@@ -2,10 +2,9 @@ import React from 'react';
 import './movieCard.css';
 import Button from "../button/button";
 
-const MovieCard = ({ movie, onNominateMovie})=>{
+const MovieCard = ({ movie, onNominateMovie, disabled})=>{
 
     const addMovie =()=>{
-        console.log('should be added');
         onNominateMovie(movie)
     }
 
@@ -14,17 +13,21 @@ const MovieCard = ({ movie, onNominateMovie})=>{
     return (
         <div className="card">
            <div className="card-details">
-               <img src={movie.Poster || noImage} className="card-image"/>
+               <img src={movie.Poster === "N/A" ? noImage : movie.Poster} className="card-image" alt="movieImage"/>
                <div className="card-name">
     <h3>{movie.Title}</h3>
-                   <p>Year of Release: <strong>{movie.Year}</strong></p>
-                   <Button
-                       text="nominate"
-                       onClick={()=>addMovie()}
-                   />
+    <p> Year of Release: <strong>{movie.Year}</strong></p>
+                   {
+                       disabled > -1 ? <Button text="Nominated" style={{backgroundColor: '#f2acb5', color: '#000'}} disabled/> :
+                       <Button
+                            text="Nominate"
+                            onClick={()=>addMovie()}
+                        />
+                   }
                </div>
            </div>
         </div>
+
     )
 }
 
