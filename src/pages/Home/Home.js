@@ -66,7 +66,7 @@ const removeNominatedMovie = (item) => {
 
     useEffect(()=>{
         if (searchText){
-            axios.get(`http://www.omdbapi.com/?s=${searchText}&apikey=d7aba90`)
+            axios.get(`https://www.omdbapi.com/?s=${searchText}&apikey=d7aba90`)
                 .then(response => {
                     const movies = response.data?.Search;
                     setLoading(true)
