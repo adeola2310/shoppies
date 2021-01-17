@@ -4,9 +4,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url("https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg") ;
+  background-color: #171824;
   font-family: 'Rubik', sans-serif;
   overflow-x: hidden;
 }

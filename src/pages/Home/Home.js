@@ -3,6 +3,8 @@ import './Home.css';
 import searchIcon from "../../icons/search.svg";
 import axios from "axios";
 import {Link} from "react-router-dom";
+import nominationImage from "../../icons/awards.svg";
+import Logo from "../../icons/shoppies.svg";
 import MovieCard from "../../components/movie-card/movieCard";
 import NominationList from "../../components/Nomination-list/nominationList";
 import Loader from "../../components/loader/loader";
@@ -24,7 +26,6 @@ const Home = () => {
     const [nominationItems, setNominationItems] = useState(initalState);
     const [noResult, setNoResult] = useState(false);
     const [banner, showBanner] = useState(false);
-    // const [error, setError] = useState('')
 
     // This stores the users nominated movies
     localStorage.setItem('nominationItems', JSON.stringify(nominationItems))
@@ -61,8 +62,6 @@ const removeNominatedMovie = (item) => {
       ];
     });
   };
-
-
 
     useEffect(()=>{
         if (searchText){
@@ -107,9 +106,12 @@ const removeNominatedMovie = (item) => {
             <div className="nav">
                 <div className="nav-content">
                     <Link to="/">
-                        <h3>The Shoppies</h3>
+                        <img src={Logo} alt="logo"/>
+                        <span style={{top: '5%', position: 'absolute'}}>The Shoppies</span>
                     </Link>
-                    <p onClick={openNominationList}>Nomination List({nominationItems?.length})</p>
+                    <p className="list" onClick={openNominationList }>Nominations
+    <span style={{backgroundColor: 'red', padding: '.4rem', borderRadius: '3px', verticalAlign: 'super'}}>{nominationItems?.length ? nominationItems?.length : 0}</span>
+                     </p>
                 </div>
             </div>
             <div className="form-search">
@@ -135,7 +137,9 @@ const removeNominatedMovie = (item) => {
                                     noResult && 
                                     <div className="no-result">
                                         <div className="text">
-                                            Oops.. no movie found yet! &#129318;&#127998;
+                                            <img src={nominationImage} width="400" alt="award"/>
+                                            <p>No movies yet!</p>
+                                            <p>Start typing in the search bar to search for movies</p>
                                             </div>
                                         </div>
                                 }
